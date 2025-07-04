@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_top">
+    <style>
+      body { font-family: Arial, sans-serif; padding: 2rem; }
+      button {
+        font-size: 1.2rem; padding: 1rem;
+        background-color: #007acc; color: white;
+        border: none; border-radius: 8px; cursor: pointer;
+      }
+      #status { margin-top: 1rem; font-weight: bold; }
+    </style>
+  </head>
+  <body>
+    <h2>🔐 Garmin LiveTrack aktualisieren</h2>
+    <input type="password" id="pw" placeholder="Passwort eingeben" />
+    <br><br>
+    <button onclick="update()">🔁 Aktualisieren</button>
+    <div id="status">⏳ Noch nicht gestartet</div>
+
+    <script>
+      function update() {
+        const pw = document.getElementById("pw").value;
+        document.getElementById("status").innerText = "⏳ Wird verarbeitet...";
+        google.script.run.withSuccessHandler(function(response) {
+          document.getElementById("status").innerText = response;
+        }).secureUpdate(pw);
+      }
+    </script>
+  </body>
+</html>
