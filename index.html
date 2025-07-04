@@ -1,32 +1,14 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <base target="_top">
-    <style>
-      body { font-family: Arial, sans-serif; padding: 2rem; }
-      button {
-        font-size: 1.2rem; padding: 1rem;
-        background-color: #007acc; color: white;
-        border: none; border-radius: 8px; cursor: pointer;
-      }
-      #status { margin-top: 1rem; font-weight: bold; }
-    </style>
-  </head>
+  <head><meta charset="utf-8"><title>LiveTrack</title></head>
   <body>
-    <h2>🔐 Garmin LiveTrack aktualisieren</h2>
-    <input type="password" id="pw" placeholder="Passwort eingeben" />
-    <br><br>
-    <button onclick="update()">🔁 Aktualisieren</button>
-    <div id="status">⏳ Noch nicht gestartet</div>
-
-    <script>
-      function update() {
-        const pw = document.getElementById("pw").value;
-        document.getElementById("status").innerText = "⏳ Wird verarbeitet...";
-        google.script.run.withSuccessHandler(function(response) {
-          document.getElementById("status").innerText = response;
-        }).secureUpdate(pw);
-      }
-    </script>
+    <h1>???? Aktuelle Radtour</h1>
+    <p>Letzte Aktualisierung: 4.7.2025, 13:43:05</p>
+    <p>
+      <a href="https://livetrack.garmin.com/session/baa6e900" target="_blank">
+        ? Garmin LiveTrack ?ffnen
+      </a>
+    </p>
+    <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&amp;data=https://livetrack.garmin.com/session/baa6e900" alt="QR-Code">
   </body>
 </html>
